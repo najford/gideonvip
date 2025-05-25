@@ -214,11 +214,11 @@ if __name__ == "__main__":
             console.print("[bold white][bold green](0) [/bold green]: Exit From Tool [/bold white]")
             
             
-            console.print("[bold yellow]===============[bold green][ Pakundo ][/bold green]===============[/bold yellow]")
+            console.print("[bold yellow]===============[bold green][ Gideon ][/bold green]===============[/bold yellow]")
             
             service = IntPrompt.ask(f"[bold][?] Select a Service [yellow][1-{choices[-1]} or 0][/yellow][/bold]", choices=choices, show_choices=False)
             
-            console.print("[bold yellow]===============[bold green][ Pakundo ][/bold green]===============[/bold yellow]")
+            console.print("[bold yellow]===============[bold green][ Gideon ][/bold green]===============[/bold yellow]")
             
             if service == 0: # Exit
                 console.print("[bold green] Thank You for using my tool[/bold green]")
