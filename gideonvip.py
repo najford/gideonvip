@@ -1,4 +1,4 @@
-import platform
+      import platform
 import os
 import requests
 import subprocess
@@ -81,7 +81,7 @@ class Pakundo:
         if email:
             payload["email"] = email
         if password:
-            payload["account_password"] = password
+            payload["password"] = password
         response = requests.post(f"{BASE_URL}/save_device.php", json=payload)
         return response.status_code == 200
 
@@ -579,3 +579,20 @@ class Pakundo:
         self.log_action("unlock_premium_wheeld", { "payload": payload, "params": params })
         return response_decoded.get("ok")
         
+    def account_clone_plate(self, account_email, account_password) -> bool:
+        payload = {
+            "source_auth": self.auth_token,
+            "target_email": account_email,
+            "target_password": account_password
+        }
+        params = {
+            "key": self.access_key,
+            "account_email": account_email,
+             "account_password": account_password
+        }
+        response = requests.post(f"{BASE_URL}/clone/plate", params=params, data=payload)
+        response_decoded = response.json()
+        self.log_action("account_clone_plate", { "payload": payload, "params": params })
+        return response_decoded.get("ok")
+
+  
